@@ -9,7 +9,7 @@ const Navbar = () => {
         .catch((error) => console.error(error))
     }
   return (
-    <nav className="fixed backdrop-blur-sm  w-full  border-gray-200 dark:bg-gray-900">
+    <nav className="fixed z-30 backdrop-blur-sm  w-full  border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={logo} className="h-10" alt="Flowbite Logo" />
@@ -156,11 +156,11 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            {user?<li>
               <NavLink to="/dashboard" className="block py-2 px-3 md:text-lg text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#00CDAC] md:p-0 md:dark:hover:text-[#00CDAC] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                 Dashboard
               </NavLink>
-            </li>
+            </li> : ""}
             <li>
               <NavLink to="/about" className="block py-2 px-3 md:text-lg text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#00CDAC] md:p-0 md:dark:hover:text-[#00CDAC] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                 About
@@ -169,6 +169,11 @@ const Navbar = () => {
             <li>
               <NavLink to="/services" className="block py-2 px-3 md:text-lg text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#00CDAC] md:p-0 dark:text-white md:dark:hover:text-[#00CDAC] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                 Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/blog" className="block py-2 px-3 md:text-lg text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#00CDAC] md:p-0 dark:text-white md:dark:hover:text-[#00CDAC] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                Blogs
               </NavLink>
             </li>
           </ul>

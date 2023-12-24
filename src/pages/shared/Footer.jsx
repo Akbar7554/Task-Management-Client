@@ -1,7 +1,7 @@
 
 const Footer = () => {
     return (
-      <footer className="flex bg-gradient-to-r from-[#614385] to-[#516395] flex-col space-y-10 justify-center p-10">
+      <footer className="flex z-30 bg-gradient-to-r from-[#614385] to-[#516395] flex-col space-y-10 justify-center p-10">
         <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium"></nav>
 
         <div className="flex justify-center space-x-5">

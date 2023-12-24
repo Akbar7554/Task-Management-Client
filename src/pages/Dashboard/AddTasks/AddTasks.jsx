@@ -97,9 +97,9 @@ const AddTasks = () => {
               <option disabled value="default">
                 Select a Priority
               </option>
-              <option value="education">Low</option>
-              <option value="productFeedback">Moderate</option>
-              <option value="marketResearch">High</option>
+              <option value="Low">Low</option>
+              <option value="Moderate">Moderate</option>
+              <option value="High">High</option>
             </select>
             {errors.options && (
               <span className="text-red-600">Priority is required</span>
