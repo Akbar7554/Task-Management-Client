@@ -2,7 +2,8 @@ import { NavLink, Outlet } from "react-router-dom"
 import useAuth from "../hooks/useAuth"
 
 const Dashboard = () => {
-  const { user } = useAuth()
+    const { user } = useAuth()
+    console.log(user);
   return (
     <div className="flex max-w-8xl mx-auto my-10">
       <div className="w-64 min-h-screen text-white bg-orange-500">

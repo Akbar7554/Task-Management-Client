@@ -23,7 +23,9 @@ const Register = () => {
       const loggedUser = result.user
       console.log(loggedUser)
       updateUserProfile(data.name, data.photoURL)
-        .then(() => {
+          .then(() => {
+              navigate("/")
+            
           axiosPublic.post("/users")
           const userInfo = {
             name: data.name,
@@ -40,7 +42,6 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500,
               })
-              navigate("/")
             }
           })
         })

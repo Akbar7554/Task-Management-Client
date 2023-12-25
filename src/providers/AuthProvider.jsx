@@ -21,7 +21,8 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
-  }
+    }
+    console.log(user);
 
   const signIn = (email, password) => {
     setLoading(true)
@@ -47,20 +48,11 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        const userInfo = { email: currentUser.email }
-        axiosPublic.post("/jwt", userInfo).then((res) => {
-          if (res.data.token) {
-            localStorage.setItem("access-token", res.data.token)
-            setUser(currentUser)
-
-            setLoading(false)
-          }
-        })
-      } else {
-        localStorage.removeItem("access-token")
+        setUser(currentUser)
         setLoading(false)
-      }
+    //   if (currentUser) {
+    //       setLoading(false)
+    //   }
     })
     return () => {
       return unSubscribe()

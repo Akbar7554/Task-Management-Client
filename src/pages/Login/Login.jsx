@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import SocialLogin from "../../components/SocialLogin/SocialLogin"
 import Swal from "sweetalert2"
+import axios from "axios"
 
 const Login = () => {
   const { signIn } = useContext(AuthContext)
@@ -10,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const from = location.state?.form?.pathname || "/"
+  //   const from = location.state?.form?.pathname || "/"
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -18,20 +19,13 @@ const Login = () => {
     const form = e.target
     const email = form.email.value
     const password = form.password.value
-    signIn(email, password).then((result) => {
-      const user = result.user
-      console.log(user)
-      Swal.fire({
-        title: "User Login Successful.",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
+    signIn(email, password)
+      .then(() => {
+        navigate("/dashboard/allTasks")
       })
-      navigate(from, { replace: true })
-    })
+      .catch(() => {
+        Swal("Error!", "Please check your email and password!", "error")
+      })
   }
 
   return (
@@ -63,7 +57,10 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover text-white text-lg">
+                <a
+                  href="#"
+                  className="label-text-alt link link-hover text-white text-lg"
+                >
                   Forgot password?
                 </a>
               </label>

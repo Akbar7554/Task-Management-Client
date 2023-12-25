@@ -15,9 +15,10 @@ const SocialLogin = () => {
         email: result.user?.email,
         name: result.user?.displayName,
       }
+      navigate("/dashboard/allTasks")
+
       axiosPublic.post("/users", userInfo).then((res) => {
         console.log(res.data)
-        navigate("/")
       })
     })
   }
